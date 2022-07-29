@@ -89,3 +89,24 @@ def inclu_tag(request):
 
     html = t.render(Context({'varible':'Hello'}))
     return HttpResponse(html)
+
+def sim_tag(request):
+    t=Template("""
+    {% load index_tags %}
+    {% test_as_tag '语言中文网欢迎你' as test %}
+    <p>{{ test }}</p>
+    """)
+
+    html = t.render(Context())
+    return HttpResponse(html)
+
+def ifchanged(request):
+    t=Template("""
+    {% for name in webnames %}
+         {% ifchanged %}
+         {{name.1|add:'ioe'}}
+         {% endifchanged %}
+     {% endfor %}    
+     """)
+    html = t.render(Context({'webnames':[['Python','Flask'],'java','c语言']}))
+    return HttpResponse(html)

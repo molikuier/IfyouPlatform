@@ -27,4 +27,6 @@ urlpatterns = [
     path('test_url/', views.test_url),
     path('simple_tag/', views.simple_tag),
     path('inclu_tag/', views.inclu_tag),
+    path('sim_tag/', views.sim_tag),
+    path('if_change/', views.ifchanged),
 ]
